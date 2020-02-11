@@ -19,7 +19,7 @@ select u.id, u.name, u.username, u.photo, p.post, p.link , p.type , p.created_at
 */
 //User functionality
 function getfollowersInfo() {
-    return conn.query(`select users.id, users.name, users.username, users.photo, follows.followed_id from users  JOIN follows on follower_id = users.id;`)
+    return conn.query(`select users.id, users.name, users.username, users.photo, follows.follower_id from users  JOIN follows on followed_id = users.id;`)
 }
 //select users.id, users.name, users.username, users.photo, follows.followed_id from users  JOIN follows on follower_id = users.id;
 function getfollowers(followed_id) {
@@ -27,7 +27,7 @@ function getfollowers(followed_id) {
 }
 
 function getfollowingList() {
-    return conn.query(`select users.id, users.name, users.username, users.photo, follows.follower_id from users  JOIN follows on followed_id = users.id;`)
+    return conn.query(`select users.id, users.name, users.username, users.photo, follows.followed_id from users  JOIN follows on follower_id = users.id;;`)
 }
 
 

@@ -10,9 +10,13 @@ import { element } from "protractor";
 })
 export class InfoSectionComponent implements OnInit {
   fileData: File = null;
-  followers: Array<any> = [];
+  // followers: Array<any> = [];
   //
+  followData: Array<any> = [];
+  followData_sec: Array<any> = [];
   following: Array<any> = [];
+  followers: Array<any> = [];
+
   //
   followersLength: any;
   followersNames: any = "";
@@ -31,7 +35,7 @@ export class InfoSectionComponent implements OnInit {
 
   ngOnInit() {
     this.getFollowing();
-    this.getFollow();
+    this.getPeopleFollowingYou();
     this._http
       .post("http://localhost:5000/findById", { user_id: this.user_id })
       .subscribe(data => {
@@ -122,16 +126,40 @@ export class InfoSectionComponent implements OnInit {
 
   getFollowing() {
     this._http
+      .get("http://localhost:5000/follow/getfollowersinfo")
+      .subscribe((data: Array<any>) => {
+        data.forEach(element => {
+          this.followData.push(element);
+        });
+
+        for (var i = 0; i < this.followData.length; i++) {
+          if (
+            this.followData[i]["follower_id"] == localStorage.getItem("user_id")
+          ) {
+            this.following.push(this.followData[i]);
+          }
+        }
+      });
+    console.log("people u follow", this.following);
+  }
+
+  getPeopleFollowingYou() {
+    this._http
       .get("http://localhost:5000/follow/getfollowinglist")
       .subscribe((data: Array<any>) => {
         data.forEach(element => {
-          if (
-            element["follower_id"] == this.user_id &&
-            element["id"] != this.user_id
-          ) {
-            this.following.push(element);
-          }
+          this.followData_sec.push(element);
         });
+
+        for (var i = 0; i < this.followData_sec.length; i++) {
+          if (
+            this.followData_sec[i]["followed_id"] ==
+            localStorage.getItem("user_id")
+          ) {
+            this.followers.push(this.followData_sec[i]);
+          }
+        }
+        console.log("************* people that follow u", this.followers);
       });
   }
 
