@@ -19,7 +19,7 @@ export class InfoSectionComponent implements OnInit {
   followersPhoto: any = "";
   followersUserNames: any = "";
 
-  constructor(private _http: HttpClient) { }
+  constructor(private _http: HttpClient) {}
   user_id: string = localStorage.getItem("user_id");
   name: string;
   username: string;
@@ -30,7 +30,7 @@ export class InfoSectionComponent implements OnInit {
   photo: string;
 
   ngOnInit() {
-    this.getFollowing()
+    this.getFollowing();
     this.getFollow();
     this._http
       .post("http://localhost:5000/findById", { user_id: this.user_id })
@@ -125,11 +125,14 @@ export class InfoSectionComponent implements OnInit {
       .get("http://localhost:5000/follow/getfollowinglist")
       .subscribe((data: Array<any>) => {
         data.forEach(element => {
-          if (element["follower_id"] == this.user_id && element["id"] != this.user_id) {
+          if (
+            element["follower_id"] == this.user_id &&
+            element["id"] != this.user_id
+          ) {
             this.following.push(element);
           }
         });
-      })
+      });
   }
 
   followersInfo() {

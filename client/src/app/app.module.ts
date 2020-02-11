@@ -44,6 +44,8 @@ import {
   FlashMessagesService
 } from "angular2-flash-messages/module";
 import { HttpModule } from "@angular/http";
+import { MainSideComponent } from "./pages/home/components/main-side/main-side.component";
+import { FollowingSideComponent } from "./pages/home/components/following-side/following-side.component";
 
 @NgModule({
   declarations: [
@@ -67,7 +69,9 @@ import { HttpModule } from "@angular/http";
     UserProfileComponent,
     UserProfilePostsSectionComponent,
     ChatComponent,
-    ChatroomComponent
+    ChatroomComponent,
+    MainSideComponent,
+    FollowingSideComponent
   ],
   imports: [
     MatListModule,
@@ -105,4 +109,4 @@ import { HttpModule } from "@angular/http";
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
