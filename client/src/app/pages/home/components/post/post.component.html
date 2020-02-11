@@ -1,46 +1,46 @@
-<div id="uploadContainer">
+<div id="uploadContainer" class="animated fadeInDown">
   <!-- <div class="row"> -->
   <!-- <div class="col-8"> -->
   <div id="text" class="form-group">
-    <h5>what would you like to say !!</h5>
+    <!-- <h5>what would you like to say !!</h5> -->
     <textarea
       #pRef
+      placeholder="what would you like to say !!"
       type="text"
       name="text"
       (change)="postText($event)"
     ></textarea>
     <br />
+    <hr />
 
-    <div class="image-upload">
-      <label for="file-input">
-        <div class="row">
-          <div class="col-4">
-            <mat-icon id="upload">add_photo_alternate</mat-icon>
-          </div>
-          <div class="col-8">
-            <p>Photo/Video</p>
+    <div id="upload">
+      <div class="row">
+        <div class="col-8">
+          <div class="image-upload">
+            <label for="file-input">
+              <div class="row">
+                <div class="col-4">
+                  <mat-icon id="uploadIcon">add_photo_alternate</mat-icon>
+                </div>
+                <div class="col-8">
+                  <p>Photo/Video</p>
+                </div>
+              </div>
+            </label>
+            <input
+              id="file-input"
+              type="file"
+              name="image"
+              (change)="fileProgress($event)"
+            />
           </div>
         </div>
-      </label>
-      <input
-        id="file-input"
-        type="file"
-        name="image"
-        (change)="fileProgress($event)"
-      />
-    </div>
-
-    <!-- <div class="image-preview mb-3" *ngIf="previewUrl">
-        <img
-          [src]="previewUrl"
-          height="200"
-          width="200"
-          style="border-radius: 100%;"
-        />
-      </div> -->
-    <br />
-    <div class="form-group">
-      <button class="btn btn-primary" (click)="onSubmit()">submit</button>
+        <div class="col-4">
+          <div class="form-group">
+            <button (click)="onSubmit()">submit</button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   <!-- </div> -->
