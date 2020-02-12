@@ -23,7 +23,7 @@ export class InfoSectionComponent implements OnInit {
   followersPhoto: any = "";
   followersUserNames: any = "";
 
-  constructor(private _http: HttpClient) { }
+  constructor(private _http: HttpClient) {}
   user_id: string = localStorage.getItem("user_id");
   name: string;
   username: string;
@@ -34,9 +34,8 @@ export class InfoSectionComponent implements OnInit {
   photo: string;
 
   ngOnInit() {
-    this.getFollowing()
-    // this.getFollow();
-    this.getPeopleFollowingYou()
+    this.getFollowing();
+    this.getPeopleFollowingYou();
     this._http
       .post("http://localhost:5000/findById", { user_id: this.user_id })
       .subscribe(data => {
@@ -134,12 +133,14 @@ export class InfoSectionComponent implements OnInit {
         });
 
         for (var i = 0; i < this.followData.length; i++) {
-          if (this.followData[i]["follower_id"] == localStorage.getItem("user_id")) {
-            this.following.push(this.followData[i])
+          if (
+            this.followData[i]["follower_id"] == localStorage.getItem("user_id")
+          ) {
+            this.following.push(this.followData[i]);
           }
         }
-      })
-    console.log("people u follow", this.following)
+      });
+    console.log("people u follow", this.following);
   }
 
   getPeopleFollowingYou() {
@@ -151,12 +152,15 @@ export class InfoSectionComponent implements OnInit {
         });
 
         for (var i = 0; i < this.followData_sec.length; i++) {
-          if (this.followData_sec[i]["followed_id"] == localStorage.getItem("user_id")) {
-            this.followers.push(this.followData_sec[i])
+          if (
+            this.followData_sec[i]["followed_id"] ==
+            localStorage.getItem("user_id")
+          ) {
+            this.followers.push(this.followData_sec[i]);
           }
         }
-        console.log("************* people that follow u", this.followers)
-      })
+        console.log("************* people that follow u", this.followers);
+      });
   }
 
   followersInfo() {

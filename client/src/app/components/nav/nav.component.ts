@@ -11,21 +11,36 @@ import { AbsoluteSourceSpan } from "@angular/compiler";
   styleUrls: ["./nav.component.scss"]
 })
 export class NavComponent implements OnInit {
-  token;
-  navbarOpen = false;
+  user_id: string = localStorage.getItem("user_id");
+  photo: string;
 
-  constructor(private http: HttpClient, private router: Router) {}
+  token;
+
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    private _http: HttpClient
+  ) {}
 
   ngOnInit() {
+    this._http
+      .post("http://localhost:5000/findById", { user_id: this.user_id })
+      .subscribe(data => {
+        console.log(data);
+        this.photo = data[0]["photo"];
+      });
     var check = setInterval(() => {
       this.token = localStorage.token;
       if (this.token) {
+        document.getElementById("navBarLandingPg").style.backgroundColor =
+          "#00b0ff";
+        document.getElementById("navBarLandingPg").style.position =
+          "webkit-sticky";
+        document.getElementById("navBarLandingPg").style.position = "fixed";
+
         clearInterval(check);
       }
     }, 200);
-  }
-  toggleNavbar() {
-    this.navbarOpen = !this.navbarOpen;
   }
   logout() {
     localStorage.removeItem("token");

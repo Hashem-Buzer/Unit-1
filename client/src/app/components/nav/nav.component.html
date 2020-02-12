@@ -61,10 +61,14 @@
       </div>
 
       <div id="profile" *ngIf="token" ngbDropdown class="d-inline-block">
-        <a ngbDropdownToggle>
-          <mat-icon>account_circle</mat-icon>
+        <a [routerLink]="['/profile']" routerLinkActive="router-link-active">
+          <img
+            [src]="'http://127.0.0.1:5000/uploads/' + photo"
+            alt=""
+            style="border-radius: 100%; width: 40px; margin-bottom: 11px;"
+          />
         </a>
-        <div id="list" ngbDropdownMenu aria-labelledby="dropdownBasic1">
+        <!-- <div id="list" ngbDropdownMenu aria-labelledby="dropdownBasic1">
           <a
             class="pro"
             href=""
@@ -75,7 +79,7 @@
           >
           <a class="pro" routerLink="/chat" ngbDropdownItem>chat</a>
           <a class="pro" href="" ngbDropdownItem (click)="logout()">logout</a>
-        </div>
+        </div> -->
       </div>
 
       <!-- ////// IN CASE LOGGED IN ////// -->

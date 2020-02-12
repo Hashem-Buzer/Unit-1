@@ -1,4 +1,5 @@
 #navBarLandingPg {
+  z-index: 1;
   a {
     text-decoration: none;
     color: white;
@@ -18,7 +19,7 @@
   // background: linear-gradient(to right, #00b4db, #0083b0);
   .nav-wrapper {
     #logo {
-      margin-left: 150px;
+      margin-left: 100px;
       &:hover {
         background: transparent;
       }
@@ -100,21 +101,20 @@
   text-align: center;
   float: right;
   margin-right: 100px;
-  padding-top: 5px;
+  padding-top: 3px;
   height: 64px;
   &:hover {
     border-top-right-radius: 20%;
     border-top-left-radius: 20%;
-    background-image: linear-gradient(to top, #ff5858 0%, #f09819 100%);
+    background-image: linear-gradient(to top, #0c2a4e 0%, #1f518d 100%);
   }
 
   #list {
-    background-image: linear-gradient(to top, #ff5858 0%, #f09819 100%);
-
+    background-image: linear-gradient(to top, #0c2a4e 0%, #1f518d 100%);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
     .pro {
-      // padding-bottom: 70px;
-      // top: 0;
-      // height: 30px;
+      border-radius: 10px;
       color: white;
       text-decoration: none;
       text-align: center;

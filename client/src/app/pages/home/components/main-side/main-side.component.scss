@@ -1,0 +1,49 @@
+#side {
+  // box-shadow: 1px -1px 10px -7px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 8px -5px rgba(0, 0, 0, 0.75);
+  padding: 20px;
+  text-align: center;
+  position: -webkit-sticky;
+  position: fixed;
+  // background-color: #ba4555;
+  background-color: transparent;
+  width: 15%;
+  height: 40%;
+  left: 0;
+  top: 10%;
+
+  hr {
+    width: 80%;
+    background-color: #2a263d;
+  }
+
+  li {
+    color: white;
+    margin-bottom: 10px;
+    height: 25px;
+
+    &:focus {
+      outline: 0px;
+    }
+
+    &:hover {
+      box-shadow: -7px 7px 5px 0px rgba(0, 0, 0, 0.75);
+      cursor: pointer;
+      color: #201d2f;
+      transition: 0.3s;
+      background-color: #ffb500;
+      border-top-right-radius: 20px;
+      border-bottom-right-radius: 20px;
+    }
+    a {
+      text-decoration: none;
+      color: white;
+    }
+  }
+  #log {
+    &:hover {
+      color: white !important;
+      background-color: rgb(184, 5, 5) !important;
+    }
+  }
+}
