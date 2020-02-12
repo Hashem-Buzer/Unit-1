@@ -29,7 +29,6 @@
     <div class="row">
       <div id="followers" class="col-4">
         <button
-          *ngIf="followersLength > 1"
           id="followersBtn"
           class="btn"
           (click)="followersInfo()"
@@ -38,7 +37,7 @@
           {{ followersLength }}
           followers
         </button>
-        <button
+        <!-- <button
           *ngIf="followersLength === 1"
           id="followersBtn"
           class="btn"
@@ -47,7 +46,7 @@
         >
           {{ followersLength }}
           follower
-        </button>
+        </button> -->
       </div>
       <div id="editProfileDiv" class="col-4">
         <button
