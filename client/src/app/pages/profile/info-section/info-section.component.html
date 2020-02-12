@@ -31,7 +31,7 @@
         <button
           id="followersBtn"
           class="btn"
-          (click)="followersInfo()"
+          [routerLink]="['/followers']"
           routerLinkActive="router-link-active"
         >
           {{ followersLength }}
@@ -63,9 +63,10 @@
         <button
           id="followingBtn"
           class="btn"
-          [routerLink]="['/edit']"
+          [routerLink]="['/following']"
           routerLinkActive="router-link-active"
         >
+          {{ followingLength }}
           following
         </button>
       </div>

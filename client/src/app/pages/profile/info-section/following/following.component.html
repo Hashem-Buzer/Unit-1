@@ -1,0 +1,24 @@
+<div id="body">
+  <app-main-side></app-main-side>
+  <div id="contacts" class="container">
+    <h4>following</h4>
+    <hr />
+    <div id="con">
+      <div
+        id="contact"
+        class="animated fadeInUp"
+        *ngFor="let user of following"
+        [routerLink]="['/users', user.id]"
+      >
+        <div id="pp">
+          <img [src]="'http://127.0.0.1:5000/uploads/' + user.photo" alt="" />
+        </div>
+        <div id="username">
+          <b>{{ user.name }}</b>
+          <br />
+          <small>{{ user.username }}</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -38,8 +38,18 @@
           </div>
         </div>
       </div>
-      <div id="image-preview" class="image-preview mb-3" *ngIf="previewUrl">
-        <img [src]="previewUrl" max-height="500" width="300" />
+      <div
+        style="margin-left: 100%; position: absolute; top: 3%;"
+        id="image-preview"
+        class="image-preview mb-3"
+        *ngIf="previewUrl"
+      >
+        <img
+          style=" border-radius: 20px;"
+          [src]="previewUrl"
+          max-height="500"
+          width="300"
+        />
       </div>
     </div>
   </div>

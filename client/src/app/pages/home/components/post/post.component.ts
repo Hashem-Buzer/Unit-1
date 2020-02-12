@@ -35,6 +35,10 @@ export class PostComponent implements OnInit {
   }
 
   preview() {
+    if (this.fileData == null) {
+      this.previewUrl = "";
+      return;
+    }
     // Show preview
     var mimeType = this.fileData.type.split("/")[0];
 
@@ -147,6 +151,8 @@ export class PostComponent implements OnInit {
           .then(() => {
             console.log(data, "from post component");
             this._http.newPost.next(data);
+            this.fileData = null;
+            this.preview();
           });
       });
   }

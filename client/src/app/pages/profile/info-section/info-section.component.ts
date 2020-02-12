@@ -10,8 +10,8 @@ import { element } from "protractor";
 })
 export class InfoSectionComponent implements OnInit {
   fileData: File = null;
-  // followers: Array<any> = [];
-  //
+  followingLength: any;
+
   followData: Array<any> = [];
   followData_sec: Array<any> = [];
   following: Array<any> = [];
@@ -34,6 +34,7 @@ export class InfoSectionComponent implements OnInit {
   photo: string;
 
   ngOnInit() {
+    // this.getFollow();
     this.getFollowing();
     this.getPeopleFollowingYou();
     this._http
@@ -97,32 +98,28 @@ export class InfoSectionComponent implements OnInit {
     //
   }
 
-  getFollow() {
-    this._http
-      .get("http://localhost:5000/follow/getfollowersInfo")
-      .subscribe((data: Array<any>) => {
-        // console.log(data, "data");
-        data.forEach(element => {
-          // console.log(element["followed_id"], "element");
-          // console.log(this.user_id, "inside the IF");
-          if (element["followed_id"] == this.user_id) {
-            this.followers.push(element);
-            // console.log(this.followers, "beeeeep");
-          }
-        });
-        // console.log(data, "f");
+  // getFollow() {
+  //   this._http
+  //     .get("http://localhost:5000/follow/getfollowersInfo")
+  //     .subscribe((data: Array<any>) => {
+  //       // console.log(data, "data");
+  //       data.forEach(element => {
+  //         if (element["followed_id"] == this.user_id) {
+  //           this.followers.push(element);
+  //         }
+  //       });
 
-        this.followersLength = this.followers["length"];
-        this.followers.forEach(element => {
-          console.log(element, "elem");
-          this.followersNames += element.name + "<br>";
-          this.followersUserNames += element.username + "<br>";
-          this.followersPhoto +=
-            `http://127.0.0.1:5000/uploads/${element.photo}` + "<br>";
-        });
-        // console.log(this.followers, "ff");
-      });
-  }
+  //       this.followersLength = this.followers["length"];
+  //       this.followers.forEach(element => {
+  //         console.log(element, "elem");
+  //         this.followersNames += element.name + "<br>";
+  //         this.followersUserNames += element.username + "<br>";
+  //         this.followersPhoto +=
+  //           `http://127.0.0.1:5000/uploads/${element.photo}` + "<br>";
+  //       });
+  //       // console.log(this.followers, "ff");
+  //     });
+  // }
 
   getFollowing() {
     this._http
@@ -139,6 +136,7 @@ export class InfoSectionComponent implements OnInit {
             this.following.push(this.followData[i]);
           }
         }
+        // this.followingLength = this.followData["length"];
       });
     console.log("people u follow", this.following);
   }
@@ -157,15 +155,24 @@ export class InfoSectionComponent implements OnInit {
             localStorage.getItem("user_id")
           ) {
             this.followers.push(this.followData_sec[i]);
+            this.followersLength = this.followers["length"];
+
+            this.followers.forEach(element => {
+              this.followersNames += element.name;
+              this.followersUserNames += element.username;
+              // this.followersUserNames += element.username + "<br>";
+              // this.followersPhoto +=
+              //   `http://127.0.0.1:5000/uploads/${element.photo}` + "<br>";
+            });
           }
         }
         console.log("************* people that follow u", this.followers);
       });
   }
 
-  followersInfo() {
-    Swal.fire({
-      html: this.followersNames + this.followersUserNames
-    });
-  }
+  // followersInfo() {
+  //   Swal.fire({
+  //     html: ""
+  //   });
+  // }
 }
