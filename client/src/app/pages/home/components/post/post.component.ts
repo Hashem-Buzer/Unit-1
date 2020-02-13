@@ -65,10 +65,10 @@ export class PostComponent implements OnInit {
     const formData = new FormData();
     console.log(this.fileData);
 
-    if (!this.fileData && !this.post) {
+    if (!this.fileData) {
       return Swal.fire(
         "Empty?",
-        "You have to write or upload something",
+        "You Have Got To Upload Something",
         "error"
       );
     }
