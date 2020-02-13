@@ -5,7 +5,8 @@ h2 {
 }
 
 #mario-chat {
-  max-width: 1000px;
+  padding-top: 70px;
+  max-width: 900px;
   min-width: 500px;
   margin: 30px auto;
   border: 1px solid #ddd;
@@ -15,7 +16,7 @@ h2 {
 }
 
 #chat-window {
-  height: 500px;
+  height: 400px;
   overflow: auto;
   background: #e2e2e2;
 }

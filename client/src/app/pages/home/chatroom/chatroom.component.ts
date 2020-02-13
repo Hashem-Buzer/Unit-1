@@ -48,7 +48,12 @@ export class ChatroomComponent implements OnInit {
       this.messageArray = messages.json();
     });
   }
-
+  Enter(event) {
+    if (event.keyCode === 13) {
+      event.preventDefault();
+      this.sendMessage()
+    }
+  }
   sendMessage() {
     this.webSocketService.sendMessage({
       room: this.chatroom,

@@ -10,7 +10,7 @@ import { element } from "protractor";
 })
 export class InfoSectionComponent implements OnInit {
   fileData: File = null;
-  followingLength: any;
+  followingLength: any = 0;
 
   followData: Array<any> = [];
   followData_sec: Array<any> = [];
@@ -18,12 +18,12 @@ export class InfoSectionComponent implements OnInit {
   followers: Array<any> = [];
 
   //
-  followersLength: any;
+  followersLength: any = 0;
   followersNames: any = "";
   followersPhoto: any = "";
   followersUserNames: any = "";
 
-  constructor(private _http: HttpClient) {}
+  constructor(private _http: HttpClient) { }
   user_id: string = localStorage.getItem("user_id");
   name: string;
   username: string;
@@ -134,6 +134,7 @@ export class InfoSectionComponent implements OnInit {
             this.followData[i]["follower_id"] == localStorage.getItem("user_id")
           ) {
             this.following.push(this.followData[i]);
+            this.followingLength = this.following["length"];
           }
         }
         // this.followingLength = this.followData["length"];
@@ -156,6 +157,7 @@ export class InfoSectionComponent implements OnInit {
           ) {
             this.followers.push(this.followData_sec[i]);
             this.followersLength = this.followers["length"];
+            console.log("ayy", this.followersLength)
 
             this.followers.forEach(element => {
               this.followersNames += element.name;

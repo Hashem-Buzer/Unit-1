@@ -8,6 +8,7 @@
         </div>
         <!-- <div id="feedback"></div> -->
     </div>
-    <input (keypress)="typing()" [(ngModel)]="message" name="message" type="text" placeholder="Message" />
+    <input (keypress)="Enter($event)" (keypress)="typing()" [(ngModel)]="message" name="message" type="text"
+        placeholder="Message" />
     <button id="send" (click)="sendMessage()">Send</button>
 </div>
