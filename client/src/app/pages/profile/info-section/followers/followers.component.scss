@@ -1,0 +1,59 @@
+#body {
+  background-color: #201d2f;
+  height: 100vh;
+
+  #con {
+    text-align: center;
+    display: flex;
+  }
+
+  #contacts {
+    text-align: center;
+    padding-top: 8%;
+    color: white;
+
+    h4 {
+      text-align: center;
+    }
+
+    hr {
+      width: 70%;
+      padding: 2%;
+    }
+
+    #pp {
+      // background-color: blue;
+      img {
+        box-shadow: 1px -1px 31px -7px rgba(0, 0, 0, 0.75);
+        object-fit: cover;
+        border-radius: 100%;
+        width: 60px;
+        max-height: 60px;
+        min-height: 60px;
+      }
+    }
+
+    #contact {
+      margin-left: 2%;
+      width: 20%;
+      padding: 1%;
+      border-radius: 100px;
+      box-shadow: 1px -1px 31px -7px rgba(0, 0, 0, 0.75);
+      &:hover {
+        cursor: pointer;
+        transition: 0.3s;
+        background-color: #00b0ff;
+      }
+
+      &:focus {
+        outline: 0;
+      }
+
+      img {
+        &:hover {
+          box-shadow: 1px -1px 31px -7px rgba(0, 0, 0, 0.75);
+        }
+      }
+    }
+  }
+}

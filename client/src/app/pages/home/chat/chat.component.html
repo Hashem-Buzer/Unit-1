@@ -1,0 +1,21 @@
+<div id="body">
+  <app-main-side></app-main-side>
+  <div id="contacts" class="container">
+    <div
+      id="contact"
+      class="row animated fadeInUp"
+      *ngFor="let user of Users"
+      routerLink="/chatroom"
+      [queryParams]="{ name: user.username, email: user.email }"
+    >
+      <div class="col-2" id="pp">
+        <img [src]="'http://127.0.0.1:5000/uploads/' + user.photo" alt="" />
+      </div>
+      <div id="username" class="col-10">
+        <b>{{ user.name }}</b>
+        <br />
+        <small>{{ user.username }}</small>
+      </div>
+    </div>
+  </div>
+</div>

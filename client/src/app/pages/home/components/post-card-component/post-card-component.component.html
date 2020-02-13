@@ -1,4 +1,7 @@
-<mat-card class="animated fadeInUp example-card" *ngFor="let post of posts">
+<mat-card
+  class="animated fadeInUp example-card"
+  *ngFor="let post of posts | reverse"
+>
   <mat-card-header id="cardHeader" [routerLink]="['/users', post.id]">
     <img
       mat-card-avatar

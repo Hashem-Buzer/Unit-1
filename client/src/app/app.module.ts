@@ -31,12 +31,11 @@ import { SweetAlert2Module } from "@sweetalert2/ngx-sweetalert2";
 import { SafePipe } from "./pipes/safe.pipe";
 import { ReversePipe } from "./pipes/reverse.pipe";
 import { DateAgoPipe } from "./pipes/date-ago.pipe";
-import { UsersListComponent } from "./pages/home/components/users-list/users-list.component";
 import { UserProfileComponent } from "./pages/user-profile/user-profile.component";
 import { UserProfilePostsSectionComponent } from "./pages/user-profile/user-profile-posts-section/user-profile-posts-section.component";
 import { MatSidenavModule, MatListModule } from "@angular/material";
-import { ChatComponent } from "./chat/chat.component";
-import { ChatroomComponent } from "./chatroom/chatroom.component";
+import { ChatComponent } from "./pages/home/chat/chat.component";
+import { ChatroomComponent } from "./pages/home/chatroom/chatroom.component";
 import { UserService } from "./user.service";
 import { WebsocketService } from "./websocket.service";
 import {
@@ -46,6 +45,8 @@ import {
 import { HttpModule } from "@angular/http";
 import { MainSideComponent } from "./pages/home/components/main-side/main-side.component";
 import { FollowingSideComponent } from "./pages/home/components/following-side/following-side.component";
+import { FollowersComponent } from './pages/profile/info-section/followers/followers.component';
+import { FollowingComponent } from './pages/profile/info-section/following/following.component';
 
 @NgModule({
   declarations: [
@@ -65,13 +66,14 @@ import { FollowingSideComponent } from "./pages/home/components/following-side/f
     SafePipe,
     ReversePipe,
     DateAgoPipe,
-    UsersListComponent,
     UserProfileComponent,
     UserProfilePostsSectionComponent,
     ChatComponent,
     ChatroomComponent,
     MainSideComponent,
-    FollowingSideComponent
+    FollowingSideComponent,
+    FollowersComponent,
+    FollowingComponent
   ],
   imports: [
     MatListModule,

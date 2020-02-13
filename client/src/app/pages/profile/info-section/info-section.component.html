@@ -29,16 +29,15 @@
     <div class="row">
       <div id="followers" class="col-4">
         <button
-          *ngIf="followersLength > 1"
           id="followersBtn"
           class="btn"
-          (click)="followersInfo()"
+          [routerLink]="['/followers']"
           routerLinkActive="router-link-active"
         >
           {{ followersLength }}
           followers
         </button>
-        <button
+        <!-- <button
           *ngIf="followersLength === 1"
           id="followersBtn"
           class="btn"
@@ -47,7 +46,7 @@
         >
           {{ followersLength }}
           follower
-        </button>
+        </button> -->
       </div>
       <div id="editProfileDiv" class="col-4">
         <button
@@ -64,9 +63,10 @@
         <button
           id="followingBtn"
           class="btn"
-          [routerLink]="['/edit']"
+          [routerLink]="['/following']"
           routerLinkActive="router-link-active"
         >
+          {{ followingLength }}
           following
         </button>
       </div>
