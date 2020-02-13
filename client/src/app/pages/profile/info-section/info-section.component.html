@@ -6,7 +6,12 @@
         <mat-icon id="icon">add</mat-icon>
       </label>
     </div>
-    <input id="file-input" type="file" name="image" (change)="onUploadPhoto($event)" />
+    <input
+      id="file-input"
+      type="file"
+      name="image"
+      (change)="onUploadPhoto($event)"
+    />
     <img [src]="'http://127.0.0.1:5000/uploads/' + photo" alt="..." />
   </div>
 
@@ -23,7 +28,12 @@
   <div id="btns" class="container">
     <div class="row">
       <div id="followers" class="col-4">
-        <button id="followersBtn" class="btn" [routerLink]="['/followers']" routerLinkActive="router-link-active">
+        <button
+          id="followersBtn"
+          class="btn"
+          [routerLink]="['/followers']"
+          routerLinkActive="router-link-active"
+        >
           {{ followersLength }}
           followers
         </button>
@@ -39,13 +49,23 @@
         </button> -->
       </div>
       <div id="editProfileDiv" class="col-4">
-        <button id="editProfile" class="btn" [routerLink]="['/edit']" routerLinkActive="router-link-active">
+        <button
+          id="editProfile"
+          class="btn"
+          [routerLink]="['/edit']"
+          routerLinkActive="router-link-active"
+        >
           <mat-icon style="float: left; margin-top: 5px;">create</mat-icon>
           edit profile
         </button>
       </div>
       <div id="following" class="col-4">
-        <button id="followingBtn" class="btn" [routerLink]="['/following']" routerLinkActive="router-link-active">
+        <button
+          id="followingBtn"
+          class="btn"
+          [routerLink]="['/following']"
+          routerLinkActive="router-link-active"
+        >
           {{ followingLength }}
           following
         </button>

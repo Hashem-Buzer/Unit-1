@@ -10,8 +10,17 @@ import { ActivatedRoute, Router } from "@angular/router";
 export class UserProfileComponent implements OnInit {
   userData: any;
   followed = false;
+  followingLength: any = 0;
+  followData: Array<any> = [];
+  following: Array<any> = [];
+  followData_sec: Array<any> = [];
+  followers: Array<any> = [];
+  followersLength: any = 0;
+  followersNames: any = "";
+  followersUserNames: any = "";
 
   constructor(
+    private _http: HttpClient,
     private http: HttpClient,
     private activatedRoute: ActivatedRoute,
     private router: Router
@@ -76,6 +85,57 @@ export class UserProfileComponent implements OnInit {
       .subscribe(data => {
         this.followed = false;
         console.log(data, "user profile res UNFOLLOW");
+      });
+  }
+
+  getFollowing() {
+    this._http
+      .get("http://localhost:5000/follow/getfollowersinfo")
+      .subscribe((data: Array<any>) => {
+        data.forEach(element => {
+          this.followData.push(element);
+        });
+
+        for (var i = 0; i < this.followData.length; i++) {
+          if (
+            this.followData[i]["follower_id"] == localStorage.getItem("user_id")
+          ) {
+            this.following.push(this.followData[i]);
+            this.followingLength = this.following["length"];
+          }
+        }
+        // this.followingLength = this.followData["length"];
+      });
+    console.log("people u follow", this.following);
+  }
+
+  getPeopleFollowingYou() {
+    this._http
+      .get("http://localhost:5000/follow/getfollowinglist")
+      .subscribe((data: Array<any>) => {
+        data.forEach(element => {
+          this.followData_sec.push(element);
+        });
+
+        for (var i = 0; i < this.followData_sec.length; i++) {
+          if (
+            this.followData_sec[i]["followed_id"] ==
+            localStorage.getItem("user_id")
+          ) {
+            this.followers.push(this.followData_sec[i]);
+            this.followersLength = this.followers["length"];
+            console.log("ayy", this.followersLength);
+
+            this.followers.forEach(element => {
+              this.followersNames += element.name;
+              this.followersUserNames += element.username;
+              // this.followersUserNames += element.username + "<br>";
+              // this.followersPhoto +=
+              //   `http://127.0.0.1:5000/uploads/${element.photo}` + "<br>";
+            });
+          }
+        }
+        console.log("************* people that follow u", this.followers);
       });
   }
 }

@@ -1,46 +1,6 @@
-<!-- <div class="container" *ngFor="let userDatum of userData">
-  <div id="info" class="container">
-    <div class="row">
-      <div class="col">
-        <img
-          height="200px"
-          width="auto"
-          [src]="'http://127.0.0.1:5000/uploads/' + userDatum.photo"
-          class="rounded mx-auto d-block"
-          alt="..."
-        />
-      </div>
-    </div>
-    <div class="col  text-center">
-      <div id="text" class="form-group"></div>
-    </div>
-
-    <div class="col text-center">@{{ userDatum.username }}</div>
-    <br />
-    <div class="row text-center">
-      <div id="follow" class="col">
-        <button (click)="follow(userDatum.id)" *ngIf="!followed">follow</button>
-        <button (click)="unFollow(userDatum.id)" *ngIf="followed">
-          unfollow
-        </button>
-      </div>
-      <div class="col">
-        Bio <br />
-        {{ userDatum.bio }}
-      </div>
-      <div id="report" class="col">
-        <h5>{{ userDatum.gender }}</h5>
-      </div>
-    </div>
-    <div class="row text-center">
-      <div class="col">Age : {{ userDatum.age }} Years Old</div>
-      <div class="col">Email : {{ userDatum.email }}</div>
-    </div>
-  </div>
-</div> -->
-<!-- <p>info-section works!</p> -->
-<!-- <p>info-section works!</p> -->
 <div id="body" *ngFor="let userDatum of userData">
+  <app-main-side></app-main-side>
+
   <div id="pp" class="container">
     <img [src]="'http://127.0.0.1:5000/uploads/' + userDatum.photo" alt="..." />
   </div>
@@ -55,12 +15,76 @@
     </div>
   </div>
   <hr />
+
+  <div id="btns" class="container">
+    <div class="row">
+      <div id="followers" class="col-4">
+        <button
+          id="followersBtn"
+          class="btn"
+          [routerLink]="['followers']"
+          routerLinkActive="router-link-active"
+        >
+          {{ followersLength }}
+          followers
+        </button>
+        <!-- <button
+          *ngIf="followersLength === 1"
+          id="followersBtn"
+          class="btn"
+          (click)="followersInfo()"
+          routerLinkActive="router-link-active"
+        >
+          {{ followersLength }}
+          follower
+        </button> -->
+      </div>
+      <div id="editProfileDiv" class="col-4">
+        <button
+          class="btn editProfile"
+          (click)="follow(userDatum.id)"
+          *ngIf="!followed"
+        >
+          follow
+        </button>
+        <button
+          class="btn editProfile"
+          (click)="unFollow(userDatum.id)"
+          *ngIf="followed"
+        >
+          unfollow
+        </button>
+        <!-- <button
+          id="editProfile"
+          class="btn"
+          [routerLink]="['/edit']"
+          routerLinkActive="router-link-active"
+        >
+          <mat-icon style="float: left; margin-top: 5px;">create</mat-icon>
+          edit profile
+        </button> -->
+      </div>
+      <div id="following" class="col-4">
+        <button
+          id="followingBtn"
+          class="btn"
+          [routerLink]="['following']"
+          routerLinkActive="router-link-active"
+        >
+          {{ followingLength }}
+          following
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!--   
   <button class="btn follow" (click)="follow(userDatum.id)" *ngIf="!followed">
     follow
   </button>
   <button class="btn follow" (click)="unFollow(userDatum.id)" *ngIf="followed">
     unfollow
-  </button>
+  </button> -->
   <app-user-profile-posts-section
     [userData]="userData"
   ></app-user-profile-posts-section>

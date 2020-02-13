@@ -29,10 +29,30 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   { path: "edit", component: EditComponent, canActivate: [AuthGuard] },
-  { path: "chat", component: ChatComponent },
-  { path: "chatroom", component: ChatroomComponent },
-  { path: "followers", component: FollowersComponent },
-  { path: "following", component: FollowingComponent },
+  { path: "chat", component: ChatComponent, canActivate: [AuthGuard] },
+  { path: "chatroom", component: ChatroomComponent, canActivate: [AuthGuard] },
+  {
+    path: "followers",
+    component: FollowersComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: "following",
+    component: FollowingComponent,
+    canActivate: [AuthGuard]
+  },
+
+  {
+    path: "users/:id/followers",
+    component: FollowersComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: "users/:id/following",
+    component: FollowingComponent,
+    canActivate: [AuthGuard]
+  },
+
   { path: "**", component: LandingPageComponent }
 ];
 

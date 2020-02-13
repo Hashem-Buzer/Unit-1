@@ -1,17 +1,7 @@
-// #info{
-//     padding: 25px;
-// }
-
-// #follow {
-//     color: green;
-// }
-// #report{
-//     color: red;
-// }
-
 #body {
+  padding-top: 5%;
   background-color: #201d2f;
-  height: 100%;
+  min-height: 100vh;
   z-index: -1;
   color: white;
   text-align: center;
@@ -75,8 +65,51 @@
   hr {
     z-index: -1;
     background-color: #161420;
-    width: 80%;
+    width: 60%;
   }
+
+  #btns {
+    margin-top: -35px;
+    z-index: 1;
+    height: 50px;
+    // background-color: red;
+    #editProfileDiv {
+      width: 10%;
+      // background-color: #ffb500;
+      .editProfile {
+        background-color: #ffb500;
+        border-radius: 30px;
+        &:hover {
+          color: white;
+          background-color: #db9e04;
+        }
+      }
+    }
+    #followers {
+      width: 10%;
+      #followersBtn {
+        background-color: #ffb500;
+        border-radius: 30px;
+        &:hover {
+          color: white;
+          background-color: #db9e04;
+        }
+      }
+    }
+
+    #following {
+      width: 10%;
+      #followingBtn {
+        background-color: #ffb500;
+        border-radius: 30px;
+        &:hover {
+          color: white;
+          background-color: #db9e04;
+        }
+      }
+    }
+  }
+
   .follow {
     // text-align: right;
     width: 10%;

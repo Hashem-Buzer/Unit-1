@@ -1,5 +1,6 @@
 #side {
-  box-shadow: 0px 0px 8px -5px rgba(0, 0, 0, 0.75);
+  animation-delay: 1s;
+  box-shadow: 0px 0px 8px -5px#007bff;
   padding: 20px;
   text-align: center;
   position: -webkit-sticky;
@@ -7,9 +8,10 @@
   // background-color: #ba4555;
   background-color: transparent;
   width: 15%;
-  height: 40%;
+  height: 100%;
   right: 0;
   top: 30%;
+  overflow: auto;
 
   h5 {
     font-weight: bold;

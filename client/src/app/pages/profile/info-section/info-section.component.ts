@@ -23,7 +23,7 @@ export class InfoSectionComponent implements OnInit {
   followersPhoto: any = "";
   followersUserNames: any = "";
 
-  constructor(private _http: HttpClient) { }
+  constructor(private _http: HttpClient) {}
   user_id: string = localStorage.getItem("user_id");
   name: string;
   username: string;
@@ -157,7 +157,7 @@ export class InfoSectionComponent implements OnInit {
           ) {
             this.followers.push(this.followData_sec[i]);
             this.followersLength = this.followers["length"];
-            console.log("ayy", this.followersLength)
+            console.log("ayy", this.followersLength);
 
             this.followers.forEach(element => {
               this.followersNames += element.name;
