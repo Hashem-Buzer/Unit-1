@@ -1,12 +1,7 @@
 <div id="uploadContainer" class="animated fadeInDown">
   <div id="text" class="form-group">
-    <textarea
-      #pRef
-      placeholder="what would you like to say !!"
-      type="text"
-      name="text"
-      (change)="postText($event)"
-    ></textarea>
+    <textarea rows="10" cols="50" #pRef placeholder="what would you like to say !!" type="text" name="text"
+      (change)="postText($event)"></textarea>
     <br />
     <hr />
 
@@ -24,12 +19,7 @@
                 </div>
               </div>
             </label>
-            <input
-              id="file-input"
-              type="file"
-              name="image"
-              (change)="fileProgress($event)"
-            />
+            <input id="file-input" type="file" name="image" (change)="fileProgress($event)" />
           </div>
         </div>
         <div class="col-4">
@@ -38,18 +28,9 @@
           </div>
         </div>
       </div>
-      <div
-        style="margin-left: 100%; position: absolute; top: 3%;"
-        id="image-preview"
-        class="image-preview mb-3"
-        *ngIf="previewUrl"
-      >
-        <img
-          style=" border-radius: 20px;"
-          [src]="previewUrl"
-          max-height="500"
-          width="300"
-        />
+      <div style="margin-left: 100%; position: absolute; top: 3%;" id="image-preview" class="image-preview mb-3"
+        *ngIf="previewUrl">
+        <img style=" border-radius: 20px;" [src]="previewUrl" max-height="500" width="300" />
       </div>
     </div>
   </div>
