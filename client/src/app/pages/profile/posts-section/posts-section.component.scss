@@ -1,6 +1,12 @@
 .container {
   margin-top: 5%;
   padding-left: 17.5%;
+
+  mat-tab-group {
+    .mat-tab {
+      background-color: white;
+    }
+  }
   .example-card {
     border-radius: 20px;
     color: white;
