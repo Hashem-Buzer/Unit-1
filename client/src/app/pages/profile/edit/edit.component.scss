@@ -1,4 +1,52 @@
-form{
-    padding: 30px;
-}
+#body {
+  background-color: #201d2f;
+  min-height: 100vh;
+  padding-top: 4%;
+  text-align: center;
 
+  form {
+    display: list-item;
+    text-align: left;
+    color: white;
+    padding: 3% 15%;
+
+    label {
+      color: white;
+      font-weight: bold;
+    }
+    textarea {
+      margin-bottom: 5%;
+      color: white;
+      background: transparent;
+    }
+    input {
+      margin-bottom: 5%;
+      color: white;
+      background: transparent;
+    }
+    select {
+      margin-bottom: 5%;
+      color: white;
+      background: transparent;
+      option {
+        color: black;
+        background: transparent;
+      }
+    }
+    button {
+      font-size: 13px;
+      background-color: #00b0ff;
+      border-radius: 20px;
+      text-align: center;
+
+      &:hover {
+        color: white;
+        background-color: #038ece;
+        transition: 0.3s;
+      }
+    }
+    .buttons {
+      text-align: center;
+    }
+  }
+}
